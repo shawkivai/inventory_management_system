@@ -17,7 +17,9 @@ Route::get('/customer-login-check', 'Customer@customer_login_check');
 
 Route::get('/company_dashboard', 'Customer@dashboard');
 
-Route::get('/add_supplier', 'Customer@add_supplier');
+Route::get('/product_request', 'Customer@product_request');
+
+Route::get('/requested_product', 'Customer@requested_product');
 
 Route::get('/logout', 'Customer@logout');
 
@@ -30,3 +32,6 @@ Route::get('/send_products', 'Supplier@send_products_to_company');
 Route::get('/save_product', 'Supplier@save_product');
 
 Route::get('/sold_products', 'Supplier@sold_products');
+
+Route::get('/company_request', 'Supplier@company_request');
+

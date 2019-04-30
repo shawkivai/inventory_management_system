@@ -81,11 +81,12 @@
 							<?php 
 								if($user_status === 'company'){?>
 									<li><a class="ajax-link" href="{{URL::to('/company_dashboard')}}"><i class="icon-home"></i><span class="hidden-tablet"> Dashbord</span></a></li>
-									<li><a class="ajax-link" href="{{URL::to('/manage_supplier')}}"><i class="icon-eye-open"></i><span class="hidden-tablet"> Manage products</span></a></li>
+									<li><a class="ajax-link" href="{{URL::to('/product_request')}}"><i class="icon-eye-open"></i><span class="hidden-tablet">product Request</span></a></li>
 									<li><a class="ajax-link" href="{{URL::to('/manage_product')}}"><i class="icon-eye-open"></i><span class="hidden-tablet"> Received Products from Supplier</span></a></li>
 							<?php }
 								elseif($user_status === 'supplier'){?>
 									<li><a class="ajax-link" href="{{URL::to('/supplier_dashboard')}}"><i class="icon-home"></i><span class="hidden-tablet"> Dashbord</span></a></li>
+									<li><a class="ajax-link" href="{{URL::to('/company_request')}}"><i class="icon-eye-open"></i><span class="hidden-tablet"> Product Request from Company </span></a></li>
 									<li><a class="ajax-link" href="{{URL::to('/send_products')}}"><i class="icon-eye-open"></i><span class="hidden-tablet"> Send Products</span></a></li>
 									<li><a class="ajax-link" href="{{URL::to('/sold_products')}}"><i class="icon-eye-open"></i><span class="hidden-tablet"> Sold Pdoducts</span></a></li>
 							<?php } ?>

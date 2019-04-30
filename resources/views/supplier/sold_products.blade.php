@@ -9,7 +9,7 @@
                     <tr><th>Sold To: <?php echo $v_product->company_name?></th></tr>
                     <tr>
                         <th>Product Name</th>
-                        <th>Product Price</th>
+                        <th>Unit Price</th>
                         <th>Product Category</th>
                         <th>Product Manufacturer</th>
                         <th>Pdoruct Quantity</th>

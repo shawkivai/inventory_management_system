@@ -59,4 +59,29 @@ class Customer extends Controller
                 ->with('content', $manage_product);
     }
 
+    public function product_request(){
+        $supplier_name = DB::table('tbl_company')
+                        ->where('user_status', 'supplier')
+                        ->get();
+        $content = view('company.product_request_form')
+                    ->with('supplier_name', $supplier_name);
+        return view('master')
+                ->with('content', $content);
+
+    }
+
+    public function requested_product(Request $request){
+        $data = array();
+        $data['request_from'] = Session::get('organization_name');
+        $data['request_to'] = $request->supplier_name;
+        $data['product_name'] = $request->product_name;
+        $data['product_category'] = $request->product_category;
+        $data['product_manufacturer'] = $request->product_manufacturer;
+        $data['product_quantity'] = $request->product_quantity;
+        
+        DB::table('tbl_product_req')->insert($data);
+        Session::put('request', 'Send Product Request Successfully !');
+        return Redirect::to('product_request');
+    }
+
 }

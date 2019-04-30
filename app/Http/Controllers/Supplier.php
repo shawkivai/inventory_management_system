@@ -50,12 +50,12 @@ class Supplier extends Controller
             if ($success) {
                 $data['product_image'] = $image_url;
                 DB::table('tbl_products')->insert($data);
-                Session::put('message', 'Save  Product Information Successfully !');
+                Session::put('notification', 'Send Products to Company Successfully !');
                 return Redirect::to('send_products');
             }
         } else {
             DB::table('tbl_products')->insert($data);
-            Session::put('message','Save Blog Information Successfully !');
+            Session::put('notification','Send Products to Company Successfully !');
             return Redirect::to('send_products');
         }
     }
@@ -68,6 +68,16 @@ class Supplier extends Controller
         $sold_product = view('supplier.sold_products')->with('product_info', $product_info);
         return view('master')
                 ->with('content', $sold_product);
+    }
+
+    public function company_request() {
+        $supplier_name = Session::get('organization_name');
+        $product_info = DB::table('tbl_product_req')
+                        ->where('request_to',$supplier_name)
+                        ->get();
+        $product_req = view('supplier.company_req_list')->with('product_info', $product_info);
+        return view('master')
+                ->with('content', $product_req);
     }
 
 }
